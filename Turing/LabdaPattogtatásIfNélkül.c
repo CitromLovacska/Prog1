@@ -30,7 +30,7 @@ main ( void )
 
 	        refresh ();
 
-	        usleep (100000);
+	        usleep ( 100000 );
 
 	}
 	return 0;
