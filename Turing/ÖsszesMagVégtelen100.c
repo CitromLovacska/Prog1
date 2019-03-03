@@ -1,14 +1,19 @@
-#include <stdio.h>
-#include <omp.h>
+#include <unistd.h>
 
-int main ()
+int main()
 {
-	#pragma omp parallel
+	int a1,a2,a3;
+	if(!(a1=fork()))
 	{
-	for ( ; ; )
-		{
-		printf("Ez egy végtelen ciklus.\n");
-		}
+		for(;;);
 	}
-	return 0;
+	if(!(a2=fork()))
+	{
+		for(;;);
+	}
+	if(!(a3=fork()))
+	{
+		for(;;);
+	}
+	for(;;);
 }
