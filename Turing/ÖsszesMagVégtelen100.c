@@ -2,16 +2,16 @@
 
 int main()
 {
-	int a1,a2,a3;
-	if(!(a1=fork()))
+	int a,b,c;
+	if(!(a=fork()))
 	{
 		for(;;);
 	}
-	if(!(a2=fork()))
+	if(!(b=fork()))
 	{
 		for(;;);
 	}
-	if(!(a3=fork()))
+	if(!(c=fork()))
 	{
 		for(;;);
 	}
