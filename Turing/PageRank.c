@@ -7,7 +7,7 @@ kiir ( double tomb[], int db )
 	int i;
 	for ( i=0; i<db; i++ )
 	{
-		printf ( "PageRank [%d]: %lf\n", i, tomb[i] );
+		printf ( "%f\n", tomb[i] );
 	}
 }
 
