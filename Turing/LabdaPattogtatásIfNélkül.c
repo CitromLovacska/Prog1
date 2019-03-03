@@ -17,21 +17,21 @@ main ( void )
 
 	for ( ; ; )
 	{
-	getmaxyx ( ablak, my, mx );
+		getmaxyx ( ablak, my, mx );
 
-        xj = ( xj - 1 ) % mx;
-        xk = ( xk + 1 ) % mx;
+	        xj = ( xj - 1 ) % mx;
+	        xk = ( xk + 1 ) % mx;
 
-        yj = ( yj - 1 ) % my;
-        yk = ( yk + 1 ) % my;
+	        yj = ( yj - 1 ) % my;
+	        yk = ( yk + 1 ) % my;
 
-        mvprintw ( abs ( yj + ( my - yk ) ),
-                   abs ( xj + ( mx - xk ) ), "O" );
+	        mvprintw ( abs ( yj + ( my - yk ) ),
+	                   abs ( xj + ( mx - xk ) ), "O" );
 
-        refresh ();
+	        refresh ();
 
-        usleep (100000);
+	        usleep (100000);
 
-    }
-    return 0;
+	}
+	return 0;
 }
