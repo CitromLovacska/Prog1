@@ -8,7 +8,7 @@ int szam = 0;
 %%
 
 [:digit:]+ {szam++;}
-[a-zA-Z] [a-zA-Z0-9]*
+[a-zA-Z] [a-zA-Z0-9]* {}
 
 %%
 
