@@ -1,0 +1,374 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Chomsky!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Decimálisból unárisba átváltó Turing gép</title>
+        
+        
+        <para>
+            Megoldás forrása: 
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Chomsky/Decim%C3%A1lisUn%C3%A1ris.c">Decimálisból unárisba.</link>
+	</para>
+	</listitem>
+	</itemizedlist>                
+        </para>
+        <para>
+            Az unáris számrendszer vonalakkal vagy húzásokkal ábrázol számokat. Egy vonal eggyel egyenlő és ezeket összeadva lehet értelmezni. A Turing-gép ezt az átváltást végzi.
+        </para>
+    </section>        
+        
+    <section>
+        <title>Az a<superscript>n</superscript>b<superscript>n</superscript>c<superscript>n</superscript> nyelv nem környezetfüggetlen</title>
+        <para>
+            Mutass be legalább két környezetfüggő generatív grammatikát, amely ezt a nyelvet generálja!
+        </para>
+        
+        
+        <para>
+        I.
+	Változók: S, X, Y.
+	Konstansok: a, b, c.
+	Szabályok: S->abc, S->aXScc, X->aYa, Ya->aX, Xa->aabb.
+	Így: S->aXScc->aXabccc->aaabbbccc.
+        </para>
+	<para>
+	II.
+	Változók: S, X, Y.
+	Konstansok: a, b, c.
+	Szabályok: S->abc, S->aXaYS, Yab->bcc, Xa->aabb.
+	Így: S->aXaYS->aXaYabc->aXabccc->aaabbbccc.
+	</para>
+	<para>
+	A formális nyelvek és nyelvtanok legjelentősebb úttörője Noam Chomsky. Munkássága egyaránt hatott a formális- és a természetes nyelvek kutatására is. A generatív nyelv a legismertebb, ez azoknak a szabályoknak a halmaza, amelyekkel a nyelv minden lehetséges jelsorozata előállítható, avagy hogyan is vagyunk képesek átírási eljárásokkal előállítani a kezdő szikbólumokból a többi jelsorozatot a szabályok szerint.
+	</para>
+    </section>        
+                
+    <section>
+        <title>Hivatkozási nyelv</title>
+        <para>
+            A <citation>KERNIGHANRITCHIE</citation> könyv C referencia-kézikönyv/Utasítások melléklete alapján definiáld 
+            BNF-ben a C utasítás fogalmát!
+            Majd mutass be olyan kódcsipeteket, amelyek adott szabvánnyal nem fordulnak (például C89), mással (például C99) igen.
+        </para>
+        
+        <para>
+            Megoldás forrása: 
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Chomsky/Hivatkoz%C3%A1siNyelv.c">C89 és C99.</link>
+	</para>
+	</listitem>
+	</itemizedlist> 
+        </para>
+        <para>
+            Egy adott nyelv vezérlésátadó utasításai az egyes műveletek végrehajtási sorrendjét határozzák meg. A C programnyelvben több utasítás fajta is létezik. Ilyen a kifejezés utasítás, összetett utasítás, iterációs utasítás, vezérlésátadó utasítás, kiválasztó utasítás és a címkézett utasítás. Egy kifejezés utasítássá válik, ha egy pontosvesszőt írunk utána. Kapcsos zárójelekkel utasítások csoportját tudjuk összefogni egyetlen utasítás blokkba. Az "if" és "else" utasításokat döntés kifejezésére használjuk, itt az "else" rész opcionális. Az "else if" utasítás adja a többszörös döntések általános szerkezetét. A "switch" utasítást is hasonlóan alkalmazzák. A "while for" utasításnál a program először kiértékeli a kifejezést, ha nem nulla az érték végrehajtja az utasítást és a kifejezés újra kiértékelődik, ez a ciklus akkor ér véget, ha a kifejezés egyenlő lesz nullával. A "break" utasítás a ciklusokból való idő előtti kilépést teszi lehetővé (legbelső ciklusból lép ki mindig). A "continue" utasítás a "break" utasításhoz kapcsolódik, ez megkezdi a következő iterációs lépést. A "goto" utasítással egy megadott címkére ugorhatunk.
+        </para>
+    </section>                     
+
+    <section>
+        <title>Saját lexikális elemző</title>
+        <para>
+            Írj olyan programot, ami számolja a bemenetén megjelenő valós számokat! 
+            Nem elfogadható olyan megoldás, amely maga olvassa betűnként a bemenetet, 
+            a feladat lényege, hogy lexert használjunk, azaz óriások vállán álljunk és ne kispályázzunk!
+        </para>
+        
+        <para>
+            Megoldás forrása:  
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Chomsky/Lexik%C3%A1lisElemz%C5%91.c">Lexikális elemző.</link>
+	</para>
+	</listitem>
+	</itemizedlist>
+        </para>
+        <para>
+            Előrször meghívjuk a függvénykönyvtárat. Ezután megadunk egy számlálót a lexernek. A szabályokat a "%% %%"-ban tudjuk leírni. A "[[:digit:]]+ megad több számot is egymás után, majd növeljük az értéket eggyel. A "[a-zA-Z] [a-zA-Z0-9]*" az összes alfanumerikus karakter láncért felelős. A main-ben az "yylex" segítségével meghívjuk a lexert, ez bájtonként fog haladni és végig fog futni a bemeneten. Végül csak kiíratjuk az eredményt.
+        </para>
+    </section>                     
+
+    <section>
+        <title>l33t.l</title>
+        <para>
+            Lexelj össze egy l33t ciphert!
+        </para>
+        
+        <para>
+            Megoldás forrása: 
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Chomsky/l33tcipher.c">l33t cipher.</link>
+	</para>
+	</listitem>
+	</itemizedlist> 
+        </para>
+        <para>
+            Elsőnek meghívjuk a függvénykönyvtárakat. Létre kell hoznunk egy int típusú változót. A program működéséhez nélkülözhetetlen egy cipher típusú tömb létrehozása, ez a betűkhöz és számokhoz tartozó lehetséges leet kódokat tartalmazza (általában négy változatlan és három kódolt betűt). A lexer által beolvasott karakterekre megnézi a program, hogy van-e köztük olyan, amely benne van a cipher típusú tömb kódolandó karakterei között. Ha igen, akkor véletlenszerűen kiválaszt egy kódolást és kiírja. Ha nem, akkor pedig a változatlan karakter fogja kiírni.
+        </para>
+    </section>                     
+
+
+    <section>
+        <title>A források olvasása</title>
+        <para>
+            Hogyan olvasod, hogyan értelmezed természetes nyelven az alábbi kódcsipeteket? Például
+            <programlisting><![CDATA[if(signal(SIGINT, jelkezelo)==SIG_IGN)
+    signal(SIGINT, SIG_IGN);]]></programlisting>
+            Ha a SIGINT jel kezelése figyelmen kívül volt hagyva, akkor ezen túl is legyen
+            figyelmen kívül hagyva, ha nem volt figyelmen kívül hagyva, akkor a jelkezelo függvény
+            kezelje. (Miután a <command>man 7 signal</command> lapon megismertem a SIGINT jelet, a
+            <command>man 2 signal</command> lapon pedig a használt rendszerhívást.)
+        </para>
+
+        <caution>
+            <title>Bugok</title>
+            <para>
+                Vigyázz, sok csipet kerülendő, mert bugokat visz a kódba! Melyek ezek és miért? 
+                Ha nem megy ránézésre, elkapja valamelyiket esetleg a splint vagy a frama?
+            </para>
+        </caution>
+            
+        <orderedlist numeration="lowerroman">
+            <listitem>                                    
+                <programlisting><![CDATA[if(signal(SIGINT, SIG_IGN)!=SIG_IGN)
+    signal(SIGINT, jelkezelo);]]></programlisting>
+	<para>
+	Ha a SIGINT jelkezelés nem lesz ignorálva, akkor innentől kezdve végezze a jelkezelést.
+	</para>
+            </listitem>
+            <listitem>                                    
+                <programlisting><![CDATA[for(i=0; i<5; ++i)]]></programlisting>
+	<para>
+	Ötször végezzük el ...
+	</para>            
+            </listitem>
+            <listitem>                                    
+
+                <programlisting><![CDATA[for(i=0; i<5; i++)]]></programlisting>
+	<para>
+	Ötször végezzük el ...
+	</para>            
+            </listitem>
+            <listitem>                                    
+
+                <programlisting><![CDATA[for(i=0; i<5; tomb[i] = i++)]]></programlisting> 
+	<para>
+	Nem lehet eldönteni, mi is fog történni, mert az i-t már használtuk előzőleg. Nem érdemes ilyen kódot írni.
+	</para>           
+            </listitem>
+            <listitem>                                    
+
+                <programlisting><![CDATA[for(i=0; i<n && (*d++ = *s++); ++i)]]></programlisting>
+	<para>
+	Nehezen olvasható a kód és nem egyértelmű a kiérékelési sorrend. Itt i legyen egyenlő nullával és ha i kisebb mint n, valamint d rákövetkezője megegyezik s rákövetkezőjével, akkor növeljük i-t eggyel.
+	</para>            
+            </listitem>
+            <listitem>                                    
+
+                <programlisting><![CDATA[printf("%d %d", f(a, ++a), f(++a, a));]]></programlisting>
+	<para>
+	Egy "printf" függvényben kiértékelni változókat nem jó megoldás, hiszen nem lehetünk biztosak, hogy milyen sorrendben fog ez megtörténni. Nagy valószínűséggel nem kívánt eredményt fogunk kapni.
+	</para>            
+            </listitem>
+            <listitem>                                    
+
+                <programlisting><![CDATA[printf("%d %d", f(a), a);]]></programlisting>
+	<para>
+	Kiíratjuk az f függvényben szereplő a-t  és magát a-t.
+	</para>            
+            </listitem>
+            <listitem>                                    
+
+                <programlisting><![CDATA[printf("%d %d", f(&a), a);]]></programlisting>
+	<para>
+	Az f függvény referencia szerint fogja megkapni az a változót és így módosítani tudja azt. Így nem lehetünk biztosak a kiértékelési sorrendben.
+	</para>            
+            </listitem>
+        </orderedlist>
+        <para>
+            Megoldás forrása:  
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Chomsky/Jelkezel%C5%91.c">Jelkezelő.</link>
+	</para>
+	</listitem>
+	</itemizedlist>
+        </para>
+
+        
+
+        
+    </section>                     
+
+    <section>
+        <title>Logikus</title>
+        <para>
+            Hogyan olvasod természetes nyelven az alábbi Ar nyelvű formulákat?
+        </para>
+        <programlisting language="tex"><![CDATA[$(\forall x \exists y ((x<y)\wedge(y \text{ prím})))$ 
+
+$(\forall x \exists y ((x<y)\wedge(y \text{ prím})\wedge(SSy \text{ prím})))$ 
+
+$(\exists y \forall x (x \text{ prím}) \supset (x<y)) $ 
+
+$(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
+]]></programlisting>        
+        <para>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/MatLog_LaTeX">https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/MatLog_LaTeX</link>
+        </para>
+
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/ZexiPy3ZxsA">https://youtu.be/ZexiPy3ZxsA</link>, <link xlink:href="https://youtu.be/AJSXOQFF_wk">https://youtu.be/AJSXOQFF_wk</link>
+        </para>
+	<para>
+	Helyesen kiolvasva a fenti kifejezéseket ezeket kapjuk.
+	</para>
+	<para>
+	I. Minden x esetén létezik olyan y, ami nagyobb mint x és y prím. Ebből az következik, hogy végtelen sok prímszám létezik.
+	</para>
+	<para>
+	II. Minden x esetén létezik olyan y, ami nagyobb mint x és y prím, valamint ikerprím. Így végtelen sok ikerprím szám létezik.
+	</para>
+	<para>
+	III. Létezik olyan y, ami minden x esetén nagyobb ha x prímszám. A supset az "implikáció" a nyelvben. Ez azt jelenti, hogy véges sok prímszám létezik.
+	</para>
+        <para>
+        IV. Létezik olyan y, ami minden x esetén igaz, hogy ha y kisebb mint x, akkor x nem prímszám. A "negáció"-val tagadom, hogy x prím. Így véges sok prímszám létezik.
+        </para>
+    </section>                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+    <section>
+        <title>Deklaráció</title>
+            
+        <para>
+            Vezesd be egy programba (forduljon le) a következőket: 
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                <para>egész</para>                        
+            </listitem>
+            <listitem>
+                <para>egészre mutató mutató</para>                        
+            </listitem>
+            <listitem>
+                <para>egész referenciája</para>                        
+            </listitem>
+            <listitem>
+                <para>egészek tömbje</para>                        
+            </listitem>
+            <listitem>
+                <para>egészek tömbjének referenciája (nem az első elemé)</para>                        
+            </listitem>
+            <listitem>
+                <para>egészre mutató mutatók tömbje</para>                        
+            </listitem>
+            <listitem>
+                <para>egészre mutató mutatót visszaadó függvény</para>                        
+            </listitem>
+            <listitem>
+                <para>egészre mutató mutatót visszaadó függvényre mutató mutató</para>                        
+            </listitem>
+            <listitem>
+                <para>egészet visszaadó és két egészet kapó függvényre mutató mutatót visszaadó, egészet kapó függvény</para>                        
+            </listitem>            
+            <listitem>
+                <para>függvénymutató egy egészet visszaadó és két egészet kapó függvényre mutató mutatót visszaadó, egészet kapó függvényre</para>                        
+            </listitem>            
+        </itemizedlist>            
+
+       <para>
+            Mit vezetnek be a programba a következő nevek?
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                <programlisting><![CDATA[int a;]]></programlisting>
+	<para>
+	Egész.
+	</para>            
+            </listitem>
+            <listitem>
+                <programlisting><![CDATA[int *b = &a;]]></programlisting> 
+	<para>
+	Egészre mutató mutató.
+	</para>           
+            </listitem>
+            <listitem>
+                <programlisting><![CDATA[int &r = a;]]></programlisting>
+	<para>
+	Egész referenciája C++ -ban.
+	</para>            
+            </listitem>
+            <listitem>
+                <programlisting><![CDATA[int c[5];]]></programlisting> 
+	<para>
+	Egészek tömbje.
+	</para>           
+            </listitem>
+            <listitem>
+                <programlisting><![CDATA[int (&tr)[5] = c;]]></programlisting>
+	<para>
+	Egészek tömbjének referenciája.
+	</para>            
+            </listitem>
+            <listitem>
+                <programlisting><![CDATA[int *d[5];]]></programlisting>
+	<para>
+	Egészek tömbjére mutató mutató.
+	</para>            
+            </listitem>
+            <listitem>
+                <programlisting><![CDATA[int *h ();]]></programlisting>
+	<para>
+	Egészre mutató mutatót visszaadó függvény.
+	</para>            
+            </listitem>
+            <listitem>
+                <programlisting><![CDATA[int *(*l) ();]]></programlisting>
+	<para>
+	Egészre mutató mutatót visszaadó függvényre mutató mutató.
+	</para>            
+            </listitem>
+            <listitem>
+                <programlisting><![CDATA[int (*v (int c)) (int a, int b)]]></programlisting>
+	<para>
+	Egészet visszaadó és két egészet kapó függvényre mutató mutató visszaadó, egészet kapó függvény.
+	</para>            
+            </listitem>            
+            <listitem>
+                <programlisting><![CDATA[int (*(*z) (int)) (int, int);]]></programlisting>
+	<para>
+	Függvénymutató egy egészet visszaadó és két egészet kapó függvényre mutató mutatót visszaadó, egészet kapó függvényre.
+	</para>            
+            </listitem>            
+        </itemizedlist>       
+
+
+        
+        <para>
+            Megoldás forrása: 
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Chomsky/Deklar%C3%A1ci%C3%B3.c">Deklaráció.</link>
+	</para>
+	</listitem>
+	</itemizedlist> 
+        </para>
+       
+    </section>                     
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                
