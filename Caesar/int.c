@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	const int db = 5;
+	const int db = 3;
 
 	double **hm;
 	printf ("Mutató címe: %p\n", &hm);
