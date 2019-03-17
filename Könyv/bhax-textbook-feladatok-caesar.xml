@@ -1,0 +1,157 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Caesar!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title><type>int ***</type> háromszögmátrix</title>
+        <para>
+           
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása: 
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Caesar/int.c">int **.</link>
+	</para>
+	</listitem>
+	</itemizedlist>               
+        </para>
+	<para>
+	A feladatban tutoriált Molnár Antal Albert.
+	</para>
+        <para>
+            A C nyelv egyik fő jellegzetessége a memóriakezelés. Ebben a példában létrehozunk egy double ** háromszögmátrixot. Nem szögezzük le, hogy hány elemű tömböket hozunk létre, a tömböket dinamikusan fogjuk lefoglalni. Elsőnek megadjuk milyen tömböt is szeretnénk létrehozni, majd eltároljuk azt. Ezt követően lefoglaljuk a háromszögmátrixot, majd kiíratjuk a memória címét. Ezek után lefoglalunk 3 tömböt (sor), majd ezek is tartalmazni fognak 3 tömböt (oszlop). A program elkészíti a háromszögmátrixot amelyben minden elemet beállítottunk a célnak megfelelően. A tanulság az, hogy a C nyelvben a tömbök kezelésére a <function>[]</function> jelek használata csak egy kényelmi funkció, a kifejezést magát többféleképpen is leírhatjuk.
+        </para>            
+    </section>        
+    <section>
+        <title>C EXOR titkosító</title>
+        <para>
+            Írj egy EXOR titkosítót C-ben!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása: 
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Caesar/ExorTitkos%C3%ADt%C3%B3.c">EXOR Titkosító.</link>
+	</para>
+	</listitem>
+	</itemizedlist>               
+        </para>
+        <para>
+            A titkosító program működése meglehetősen egyszerű. Elsőnek is kiolvassuk a kulcsot az argumentumból, majd olvassuk a bemenetet a "standard input"-on. Meg kell tudnunk a bemenetünk méretét, majd titkosítani az egészet (bitenként elvégezzük a XOR utasítást). Ezek után a buffert kiírjuk a "standard output"-on.
+        </para>            
+    </section>        
+    <section>
+        <title>Java EXOR titkosító</title>
+        <para>
+            Írj egy EXOR titkosítót Java-ban!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása: 
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Caesar/ExorJava.java">Java EXOR Titkosító.</link>
+	</para>
+	</listitem>
+	</itemizedlist>
+        </para>
+        <para>
+        A feladatban tutoriált Lovász Botond.
+        </para> 
+	<para>
+	Ebben a programban hasonlóan járunk el, mint az előzőben. Természetesen Java környezetben. A különbség abban rejlik a két program között, hogy a szöveget tartalmazó txt egy mappában kell, hogy legyen a programmal és ez a kulcsot a "standard input"-ról kéri be, nem pedig parancssori argumentumként.
+	</para>           
+    </section>        
+    <section>
+        <title>C EXOR törő</title>
+        <para>
+            Írj egy olyan C programot, amely megtöri az első feladatban előállított titkos szövegeket!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:  
+	<itemizedlist mark='linkek'>
+	<listitem>
+	<para>
+	<link xlink:href="https://github.com/CitromLovacska/Prog1/blob/master/Caesar/ExorT%C3%B6r%C5%91.c">EXOR törő.</link>
+	</para>
+	</listitem>
+	</itemizedlist>              
+        </para>
+        <para>
+            A már korábban megírt programunk titkosított szövegét hivatott feltörni ez a program. Esetünkben a kulcs 5 hosszúságú (akkora lehet, amekkorára csak be szeretnénk állítani). Az átlagos szóhossz 5 és 9 közé lett beállítva és a leggyakoribb 4 szó lett megadva a programnak.
+        </para>            
+    </section>        
+    <section>
+        <title>Neurális OR, AND és EXOR kapu</title>
+        <para>
+            R
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/Koyw6IH5ScQ">https://youtu.be/Koyw6IH5ScQ</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R</link>               
+        </para>
+	<para>
+	Ebben az R programban egy neurális háló felépítése a célunk és a program kimenetét vizualizálva láthatjuk. A <function>library(neuralnet)</function> csomagot hívjuk segítségül, majd 3 részre bontva tanítjuk meg a programunknak hogyan is alkalmazza a különböző bemeneteket. Az OR és az AND esetében tökéletesen működik a program. Az EXOR-nál viszont nem megfelelő a súlyozás. Megoldás képpen a rejtett neuronokat egyenlővé tesszük egy sorozattal (6, 4, 6), így megfelelően fog már működni.
+	</para>
+        <para>
+OR:
+<programlisting>
+0-0->0
+0-1->1
+1-0->1
+1-1->1
+</programlisting>
+AND : 
+<programlisting>
+0-0->0
+0-1->0
+1-0->0
+1-1->1
+</programlisting>
+EXOR : 
+<programlisting>
+0-0->0
+0-1->1
+1-0->1
+1-1->0
+</programlisting>
+        </para>            
+    </section>        
+    <section>
+        <title>Hiba-visszaterjesztéses perceptron</title>
+        <para>
+            C++
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>            
+    </section>        
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                
